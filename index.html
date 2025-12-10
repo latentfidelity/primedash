@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Generations x WOMBO [PETBO Templates] - Terminal Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <!-- Header -->
+        <header class="terminal-header">
+            <div class="terminal-title">
+                <span class="prompt">$</span>
+                <span class="title-text">Prime Generations x WOMBO [<span class="petbo">PETBO</span> Templates]</span>
+            </div>
+            <div class="header-info">
+                <span class="status-indicator"></span>
+                <span id="datetime"></span>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Grid -->
+        <main class="dashboard-grid">
+            <!-- System Status Panel -->
+            <section class="panel panel-goals">
+                <div class="panel-header">
+                    <span class="prompt">&gt;</span> GOALS
+                </div>
+                <div class="panel-content">
+                    <ul class="goal-list">
+                        <li class="goal-item">Iterate interesting ideas in the canvas using the provided sample pets.</li>
+                        <li class="goal-item">Compose an easily navigable directory of folders by pet &gt; theme.</li>
+                        <li class="goal-item">Communicate when you toggle duty.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Activity Log Panel -->
+            <!-- Quick Actions Panel -->
+            <section class="panel panel-quick">
+                <div class="panel-header">
+                    <span class="prompt">&gt;</span> TIMEKEEPING
+                </div>
+                <div class="panel-content">
+                    <div class="login-form">
+                        <input type="text" id="loginInput" aria-label="UniqueID" placeholder="UniqueID">
+                        <button class="terminal-btn session-btn" id="loginButton">Login</button>
+                        <div class="login-status">
+                            <span id="loginMessage">Enter user ID to begin.</span>
+                            <span class="session-timer" id="sessionTimer">00:00:00</span>
+                        </div>
+                        <div class="rate-row" id="rateRow">
+                            <span>💵 $<span id="usdEarned">0.00</span></span>
+                            <span>💷 £<span id="gbpEarned">0.00</span></span>
+                        </div>
+                    </div>
+                    <div class="submission-log">
+                        <div class="submission-title">Submissions (.zip)</div>
+                        <ul class="submission-list" id="submissionList">
+                            <li class="submission-placeholder">—</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blank Panel -->
+            <section class="panel panel-blank">
+                <div class="panel-header">
+                    <span class="prompt">&gt;</span> HINTS
+                </div>
+                <div class="panel-content hints-content" id="hintsPanel">
+                    <ul>
+                        <li>Enter your UniqueID in the middle panel and click Login.</li>
+                        <li>Timer starts when authenticated; earnings accrue at $16/hr.</li>
+                        <li>Logout prompts you to submit a .zip; earnings are logged with the submission.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
