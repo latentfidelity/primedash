@@ -28,9 +28,11 @@ const sessionTimer = document.getElementById('sessionTimer');
 const submissionList = document.getElementById('submissionList');
 const usdEarnedEl = document.getElementById('usdEarned');
 const gbpEarnedEl = document.getElementById('gbpEarned');
+const zipFileInput = document.getElementById('zipFileInput');
 let loggedIn = false;
 let sessionStart = null;
 let sessionInterval = null;
+let pendingEarnings = null;
 const requiredUserId = 'PrimeGenLordofBrits';
 const usdRatePerHour = 16;
 const usdToGbp = 0.79; // simple static conversion
@@ -115,18 +117,15 @@ function handleLogout() {
         sessionInterval = null;
     }
     const elapsedMs = sessionStart ? Date.now() - sessionStart : 0;
-    const earnings = computeEarnings(elapsedMs);
+    pendingEarnings = computeEarnings(elapsedMs);
     sessionStart = null;
     updateTimerDisplay();
     loginButton.textContent = 'Login';
     loginButton.classList.remove('active');
-    loginMessage.textContent = 'Enter user ID to begin.';
+    loginMessage.textContent = 'Select a .zip file to submit.';
     loginMessage.style.color = '';
-    const filename = prompt('Submit your work as a .zip file:', 'submission.zip');
-    if (filename && filename.trim().toLowerCase().endsWith('.zip')) {
-        addSubmission(filename.trim(), earnings);
-    } else if (filename) {
-        alert('Only .zip files are accepted.');
+    if (zipFileInput) {
+        zipFileInput.click();
     }
 }
 
@@ -149,5 +148,21 @@ if (loginInput) {
                 handleLogin();
             }
         }
+    });
+}
+
+if (zipFileInput) {
+    zipFileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            if (file.name.toLowerCase().endsWith('.zip')) {
+                addSubmission(file.name, pendingEarnings);
+                loginMessage.textContent = 'Enter user ID to begin.';
+            } else {
+                alert('Only .zip files are accepted.');
+            }
+        }
+        pendingEarnings = null;
+        zipFileInput.value = '';
     });
 }
