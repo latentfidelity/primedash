@@ -45,8 +45,9 @@
                 <div class="panel-content">
                     <div class="login-form">
                         <input type="text" id="loginInput" aria-label="UniqueID" placeholder="UniqueID">
-                        <button class="terminal-btn session-btn" id="loginButton">Login</button>
-                        <input type="file" id="zipFileInput" accept=".zip" style="display: none;">
+                        <button class="terminal-btn session-btn" id="loginButton" type="button">Login</button>
+                        <button class="terminal-btn upload-btn" id="uploadButton" type="button" style="display: none;">Upload .zip</button>
+                        <input type="file" id="zipFileInput" accept=".zip" class="file-input-hidden">
                         <div class="login-status">
                             <span id="loginMessage">Enter user ID to begin.</span>
                             <span class="session-timer" id="sessionTimer">00:00:00</span>
@@ -74,7 +75,7 @@
                     <ul>
                         <li>Enter your UniqueID in the middle panel and click Login.</li>
                         <li>Timer starts when authenticated; earnings accrue at $16/hr.</li>
-                        <li>Logout opens a file picker to submit a .zip; earnings are logged with the submission.</li>
+                        <li>Logout opens a file picker to submit a .zip (or click Upload .zip); earnings are logged with the submission.</li>
                     </ul>
                 </div>
             </section>
