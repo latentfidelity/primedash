@@ -137,7 +137,7 @@ function addSubmission(filename, earnings) {
     if (earnings && typeof earnings.usd === 'number' && typeof earnings.gbp === 'number') {
         const earn = document.createElement('span');
         earn.className = 'submission-earnings';
-        earn.textContent = `dY'æ $${earnings.usd.toFixed(2)} ƒ?› dY'ú Aœ${earnings.gbp.toFixed(2)}`;
+        earn.textContent = `💵 $${earnings.usd.toFixed(2)}  💷 £${earnings.gbp.toFixed(2)}`;
         li.appendChild(earn);
     }
     submissionList.insertBefore(li, submissionList.firstChild);
@@ -152,7 +152,7 @@ function renderSubmissions() {
     if (!submissions.length) {
         const placeholder = document.createElement('li');
         placeholder.className = 'submission-placeholder';
-        placeholder.textContent = 'ƒ?"';
+        placeholder.textContent = '—';
         submissionList.appendChild(placeholder);
         return;
     }
@@ -311,3 +311,4 @@ if (loggedIn && sessionStart) {
 }
 
 window.addEventListener('beforeunload', persistState);
+
