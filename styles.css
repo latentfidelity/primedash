@@ -400,7 +400,7 @@ body {
     font-size: 0.9rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
 }
 
@@ -420,7 +420,19 @@ body {
 .submission-earnings {
     color: var(--text-dim);
     text-align: right;
-    min-width: 120px;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    white-space: nowrap;
+}
+
+.submission-earnings .currency-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.2;
 }
 
 /* Network Traffic */

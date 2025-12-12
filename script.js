@@ -135,9 +135,18 @@ function addSubmission(filename, earnings) {
     link.target = '_blank';
     li.appendChild(link);
     if (earnings && typeof earnings.usd === 'number' && typeof earnings.gbp === 'number') {
-        const earn = document.createElement('span');
+        const earn = document.createElement('div');
         earn.className = 'submission-earnings';
-        earn.textContent = `💵 $${earnings.usd.toFixed(2)}  💷 £${earnings.gbp.toFixed(2)}`;
+        const usdLine = document.createElement('div');
+        usdLine.className = 'currency-line';
+        usdLine.textContent = `💵 $${earnings.usd.toFixed(2)}`;
+
+        const gbpLine = document.createElement('div');
+        gbpLine.className = 'currency-line';
+        gbpLine.textContent = `💷 £${earnings.gbp.toFixed(2)}`;
+
+        earn.appendChild(usdLine);
+        earn.appendChild(gbpLine);
         li.appendChild(earn);
     }
     submissionList.insertBefore(li, submissionList.firstChild);
@@ -311,4 +320,3 @@ if (loggedIn && sessionStart) {
 }
 
 window.addEventListener('beforeunload', persistState);
-
